@@ -1,10 +1,12 @@
 package io.sabri.studentscrud;
 
+import java.io.Serializable;
+
 /**
  * Created by Sabri on 11/6/17.
  */
 
-public class Student {
+public class Student implements Serializable {
 
     private int id;
     private String name;

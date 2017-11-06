@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 Student student = (Student) parent.getItemAtPosition(position);
 
                 Intent intent = new Intent(MainActivity.this, EditStudentActivity.class);
-                intent.putExtra("ID", student.getId());
+                intent.putExtra("STUDENT", student);
                 startActivity(intent);
 
             }

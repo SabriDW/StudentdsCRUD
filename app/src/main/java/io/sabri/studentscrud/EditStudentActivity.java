@@ -23,9 +23,8 @@ public class EditStudentActivity extends AppCompatActivity {
         editButton = findViewById(R.id.edit_button);
         deleteStudent = findViewById(R.id.delete_student);
 
-        final int id = getIntent().getIntExtra("ID", -1);
 
-        Student student = StudentsDBUtils.findOne(this, id);
+        final Student student = (Student) getIntent().getSerializableExtra("STUDENT");
 
         name.setText(student.getName());
         grade.setText(String.valueOf(student.getGrade()));
@@ -34,7 +33,7 @@ public class EditStudentActivity extends AppCompatActivity {
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StudentsDBUtils.update(EditStudentActivity.this, id,
+                StudentsDBUtils.update(EditStudentActivity.this, student.getId(),
                         name.getText().toString(),
                         Integer.parseInt(grade.getText().toString()));
                 finish();
@@ -44,7 +43,7 @@ public class EditStudentActivity extends AppCompatActivity {
         deleteStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StudentsDBUtils.delete(EditStudentActivity.this, id);
+                StudentsDBUtils.delete(EditStudentActivity.this, student.getId());
                 finish();
             }
         });

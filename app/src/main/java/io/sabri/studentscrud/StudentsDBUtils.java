@@ -53,6 +53,7 @@ public class StudentsDBUtils {
 
         }
 
+        cursor.close();
 
         return students;
     }
@@ -104,6 +105,7 @@ public class StudentsDBUtils {
         String name = cursor.getString(cursor.getColumnIndex(NAME));
         int grade = cursor.getInt(cursor.getColumnIndex(GRADE));
 
+        cursor.close();
 
         Student student = new Student(studentId, name, grade);
 

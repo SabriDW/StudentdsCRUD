@@ -23,10 +23,13 @@ public class EditStudentActivity extends AppCompatActivity {
         editButton = findViewById(R.id.edit_button);
         deleteStudent = findViewById(R.id.delete_student);
 
-        name.setText(getIntent().getStringExtra("NAME"));
-        grade.setText(String.valueOf(getIntent().getIntExtra("GRADE", 0)));
-
         final int id = getIntent().getIntExtra("ID", -1);
+
+        Student student = StudentsDBUtils.findOne(this, id);
+
+        name.setText(student.getName());
+        grade.setText(String.valueOf(student.getGrade()));
+
 
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override

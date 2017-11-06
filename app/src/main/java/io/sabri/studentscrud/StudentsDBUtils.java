@@ -87,4 +87,27 @@ public class StudentsDBUtils {
         else
             return helper.getReadableDatabase();
     }
+
+    public static Student findOne(Context context, int id) {
+        SQLiteDatabase db = getDatabase(context, false);
+
+        String[] fields = {ID, NAME, GRADE};
+
+        String[] args = {String.valueOf(id)};
+
+        Cursor cursor = db.query(TABLE, fields, ID + " = ?", args, null, null, null);
+        // SELECT id, name, grade FROM students WHERE ID = id;
+
+        cursor.moveToNext();
+
+        int studentId = cursor.getInt(cursor.getColumnIndex(ID));
+        String name = cursor.getString(cursor.getColumnIndex(NAME));
+        int grade = cursor.getInt(cursor.getColumnIndex(GRADE));
+
+
+        Student student = new Student(studentId, name, grade);
+
+        return student;
+
+    }
 }

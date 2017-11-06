@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, EditStudentActivity.class);
                 intent.putExtra("ID", student.getId());
-                intent.putExtra("NAME", student.getName());
-                intent.putExtra("GRADE", student.getGrade());
                 startActivity(intent);
 
             }

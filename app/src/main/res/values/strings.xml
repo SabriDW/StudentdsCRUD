@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">StudentsCRUD</string>
+    <string name="add_student">Add Student</string>
+    <string name="name">Name</string>
+    <string name="grade">Grade</string>
+    <string name="delete_student">Delete Student</string>
+    <string name="edit_student">Edit Student</string>
+</resources>
